@@ -1,0 +1,14 @@
+kind: Service                             
+apiVersion: v1
+metadata:
+  name: app-01
+  labels:
+    app: app-01
+spec:
+  ports:
+    - port: 8080                               
+      targetPort: 80                    
+      nodePort: 31200
+  selector:
+    app: app-01                    
+  type: LoadBalancer                

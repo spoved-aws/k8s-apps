@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: app-01
+spec:
+   replicas: 2
+   selector:      # tells the controller which pods to watch/belong to
+    matchLabels:
+     app: app-01
+   template:
+      metadata:
+        labels:
+          app: app-01
+      spec:
+       containers:
+        - name: app-01
+          image: kanukhosla10/app-01-pipeline
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
